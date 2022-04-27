@@ -14,7 +14,7 @@ tqdm.pandas()
 #####################################################################################################################
 # EXTRACTING ALL THE TC NAMES FROM THE DATABASE 
 
-EXTRA = False
+EXTRA = True
 
 # Load the database of Tropical Cyclones names
 info_df = pd.read_excel('TC-names.xlsx', sheet_name = 'Information')
