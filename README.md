@@ -4,7 +4,7 @@
 
 ## About
 
-This repository consists of the back-end for an Jupyter notebook interface (using Binder) that allows user to upload an Excel file containing storm events names, and download the same file augmented with a column containing the extracted tropical cyclone (TC) names. 
+This repository consists of the back-end for an Jupyter notebook interface (using Binder) that allows users to upload an Excel file containing storm events names, and download the same file augmented with a column (`TC names`) containing the extracted tropical cyclone (TC) names. 
 
 
 ## File structure
