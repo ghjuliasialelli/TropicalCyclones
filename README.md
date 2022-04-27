@@ -8,9 +8,15 @@ This repository consists of the back-end for an Jupyter notebook interface (usin
 
 
 ## File structure
-
+- [`Extra-names.xlsx`](https://github.com/ghjuliasialelli/TropicalCyclones/blob/main/Extra-names.xlsx) : TC names lacking from `TC-names.xlsx` but matched in `IDMC_data_match_events_manual_check.xlsx`. 
+- [`IBTRACS-names.xlsx`](https://github.com/ghjuliasialelli/TropicalCyclones/blob/main/IBTRACS-names.xlsx) : TC names scraped from [IBTrACS](http://ibtracs.unca.edu/). 
 - [`TC-names.xlsx`](https://github.com/ghjuliasialelli/TropicalCyclones/blob/main/TC-names.xlsx) : Database of WMO (World Meteorological Organization) tropical cyclone names.
+- [`ibtracs_scraper.py`](https://github.com/ghjuliasialelli/TropicalCyclones/blob/main/ibtracs_scraper.py) : Script for obtaining `IBTRACS-names.xlsx`. 
 - [`main.ipynb`](https://github.com/ghjuliasialelli/TropicalCyclones/blob/main/main.ipynb) : Jupyter notebook on which Binder relies, client-interface.
 - [`requirements.txt`](https://github.com/ghjuliasialelli/TropicalCyclones/blob/main/requirements.txt) : Package requirements for the code execution.
 - [`tools.py`](https://github.com/ghjuliasialelli/TropicalCyclones/blob/main/tools.py) : Contains all the functions needed to execute `main.ipynb`. 
 
+
+## Details on the construction of the databases
+
+TODO
