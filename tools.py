@@ -6,7 +6,6 @@ from itertools import chain
 from ipywidgets import FileUpload, SelectMultiple, RadioButtons, Button
 from IPython.display import display
 import functools
-
 from tqdm.notebook import tqdm
 tqdm.pandas()
 
@@ -83,7 +82,6 @@ def get_sheets_selection(myupload) :
             output_file.write(content) 
     # then we read its sheet names
     truc = pd.ExcelFile('output.xlsx')
-    truc.sheet_names
     # and we ask the user to select which sheets are of interest
     sheets_selection = SelectMultiple(
         options=truc.sheet_names,
@@ -121,7 +119,7 @@ def parse_names(b, sheets_selection_ = [], column_widgets_ = []) :
     with pd.ExcelWriter('output.xlsx', mode = 'a', engine = 'openpyxl', if_sheet_exists = 'replace') as writer:
         for sheet, column in zip(sheetnames, columns) :
             sheet_data = pd.read_excel('output.xlsx', sheet_name = sheet)
-            sheet_data['TC names'] = sheet_data[column].progress_apply(extract_tc_name)
+            sheet_data['TC names'] = sheet_data[column].apply(extract_tc_name)
             sheet_data = sheet_data.explode('TC names')
             sheet_data.to_excel(writer, sheet_name = sheet)
 
