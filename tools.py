@@ -111,29 +111,14 @@ def get_columns_selection(sheets_selection) :
 
 #column_widgets = get_columns_selection(sheets_selection) #INN
 
-def parse_names(b, sheets_selection_ = [], column_widgets_ = []) : 
+def parse_names(sheets_selection, column_widgets) : 
     # name of the column of interest in each sheet
-    columns = [column_widget.value for column_widget in column_widgets_]
+    columns = [column_widget.value for column_widget in column_widgets]
     # list of the names of the sheets
-    sheetnames = list(sheets_selection_.value) 
+    sheetnames = list(sheets_selection.value) 
     with pd.ExcelWriter('output.xlsx', mode = 'a', engine = 'openpyxl', if_sheet_exists = 'replace') as writer:
         for sheet, column in zip(sheetnames, columns) :
             sheet_data = pd.read_excel('output.xlsx', sheet_name = sheet)
             sheet_data['TC names'] = sheet_data[column].apply(extract_tc_name)
             sheet_data = sheet_data.explode('TC names')
             sheet_data.to_excel(writer, sheet_name = sheet)
-
-# Button to launch the parsing 
-def launch_button(sheets_selection, column_widgets) :
-    button = Button(
-        description='Launch parsing',
-        disabled=False,
-        button_style='',
-        tooltip='Launch parsing',
-        icon='check'
-    )
-    button.on_click(functools.partial(parse_names, sheets_selection_ = sheets_selection, column_widgets_ = column_widgets))
-    return button
-
-#button = launch_button(sheets_selection, column_widgets) #INN
-#display(button) #INN
